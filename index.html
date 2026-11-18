@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071c2c"><title>Masjid Azzikra | Digital Masjid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar"><div class="brand"><img class="brand-logo" src="logo-azzikra.jpeg" alt="Logo Masjid Azzikra"><div><div class="eyebrow">SISTEM INFORMASI MASJID</div><div class="mosque-name" id="mosqueNameTop">MASJID AZZIKRA</div><div class="brand-subtitle">Ust. ARIFIN ILHAM</div></div></div><div class="top-meta"><span id="hijriDate">Kalender Hijriah</span><span class="live-dot"></span><span>LIVE</span></div></header>
+  <main class="dashboard">
+    <section class="left-column">
+      <div class="hero-card"><div class="hero-overlay"></div><div class="hero-content"><div class="eyebrow">WAKTU SAAT INI</div><div id="clock" class="clock">00:00:00</div><div id="gregDate" class="greg-date">Memuat tanggal...</div><div class="location-line">⌖ <span id="locationLabel">Batulicin, Indonesia</span></div></div></div>
+      <div class="next-card"><div><div class="eyebrow">MENUJU WAKTU SALAT BERIKUTNYA</div><div class="next-prayer" id="nextPrayer">Memuat...</div><div class="muted" id="nextPrayerTime">--:--</div></div><div class="countdown" id="countdown">--:--:--</div></div>
+      <div class="prayer-card"><div class="section-heading"><div><div class="eyebrow">JADWAL HARI INI</div><h2>Waktu Salat</h2></div><span class="date-pill" id="todayLabel">Hari ini</span></div><div class="prayer-list" id="prayerList"><div class="loading">Mengambil jadwal salat...</div></div><div class="prayer-note">Waktu salat mengikuti lokasi dan metode perhitungan yang dipilih.</div></div>
+    </section>
+    <section class="right-column">
+      <div class="media-card"><div class="media-head"><div><div class="eyebrow">INFORMASI & DOKUMENTASI</div><h2>Kegiatan Masjid</h2></div><span class="media-indicator">● TAYANGAN</span></div><div class="media-stage" id="mediaStage"><div class="empty-media"><div class="empty-icon">✦</div><h3>Selamat Datang</h3><p>Informasi dan kegiatan masjid akan ditampilkan di sini.</p><small>Tambahkan foto atau video melalui menu pengaturan.</small></div></div><div class="media-caption" id="mediaCaption">MEDIA INFORMASI MASJID</div></div>
+      <section class="finance-card">
+        <div class="finance-head"><div><div class="eyebrow">TRANSPARANSI KEUANGAN</div><h2>Laporan Kas Jumat</h2><small id="financePeriod">Periode laporan berjalan</small></div><span class="finance-label">INFO KEUANGAN</span></div>
+        <div class="finance-summary">
+          <div><span>Saldo Kas</span><strong id="publicBalance">Rp0</strong></div>
+          <div><span>Kas Masuk</span><strong class="income" id="publicIncome">Rp0</strong></div>
+          <div><span>Kas Keluar</span><strong class="expense" id="publicExpense">Rp0</strong></div>
+        </div>
+      </section>
+      <div class="announcement-card"><div class="announcement-icon">✧</div><div class="announcement-content"><div class="eyebrow">PENGUMUMAN MASJID</div><div id="announcementText">Mari makmurkan masjid dengan salat berjamaah.</div></div></div>
+      <div class="quote-card"><div class="quote-symbol">“</div><div><p>Sebaik-baik tempat di sisi Allah adalah masjid-masjid-Nya.</p><span>— Pengingat untuk memakmurkan masjid</span></div></div>
+    </section>
+  </main>
+  <footer><span id="footerMosque">MASJID AZZIKRA</span><span>BERSAMA MEMAKMURKAN MASJID</span><button id="adminOpen" class="admin-trigger" title="Pengaturan">⚙</button></footer>
+</div>
+<div class="alarm-overlay" id="alarmOverlay"><div class="alarm-box"><div class="alarm-moon">☾</div><div class="eyebrow">TELAH MASUK WAKTU SALAT</div><h1 id="alarmPrayerName">Waktu Salat</h1><p>Marilah menunaikan salat berjamaah.</p><button id="dismissAlarm">Tutup Pengingat</button></div></div>
+<div class="modal-backdrop" id="adminModal"><div class="settings-panel"><div class="settings-header"><div><div class="eyebrow">KONTROL APLIKASI</div><h2>Pengaturan Masjid</h2></div><button class="close-btn" id="adminClose">×</button></div>
+  <div class="settings-body">
+    <label>Nama masjid<input id="setMosque" placeholder="Nama masjid"></label>
+    <div class="two-fields"><label>Kota<input id="setCity" placeholder="Contoh: Batulicin"></label><label>Negara<input id="setCountry" value="Indonesia"></label></div>
+    <div class="two-fields"><label>Metode perhitungan<select id="setMethod"><option value="20">Kementerian Agama RI</option><option value="3">Muslim World League</option><option value="5">Egyptian General Authority</option><option value="4">Umm Al-Qura University</option></select></label><label>Zona waktu<select id="setTimezone"><option value="Asia/Makassar">WITA</option><option value="Asia/Jakarta">WIB</option><option value="Asia/Jayapura">WIT</option></select></label></div>
+    <label>Pengumuman / running text<textarea id="setAnnouncement" rows="2"></textarea></label>
+    <div class="settings-section"><h3>Alarm salat</h3><label class="switch-row"><span>Aktifkan alarm otomatis</span><input type="checkbox" id="setAlarm" checked><i></i></label><label>Suara alarm (opsional)<input type="file" id="alarmFile" accept="audio/*"></label><p class="help">Browser harus tetap terbuka. Klik tombol Aktifkan Suara pada layar utama jika browser meminta izin audio.</p><button class="secondary-btn" id="testAlarm">Uji suara alarm</button></div>
+    <div class="settings-section"><h3>Tampilan laporan keuangan Jumat</h3><label>Saldo kas saat ini (Rp)<input id="financeBalanceInput" type="number" min="0" step="1000" value="0"></label><div class="two-fields"><label>Kas masuk Jumat (Rp)<input id="financeIncomeInput" type="number" min="0" step="1000" value="0"></label><label>Kas keluar Jumat (Rp)<input id="financeExpenseInput" type="number" min="0" step="1000" value="0"></label></div><label>Periode laporan<input id="financePeriodInput" type="text" placeholder="Contoh: Jumat, 20 November 2026"></label><p class="help">Masukkan angka ringkasan yang ingin ditampilkan kepada jamaah. Bagian ini hanya menampilkan saldo, kas masuk, dan kas keluar; tidak menyediakan riwayat transaksi atau fitur cetak.</p></div>
+    <div class="settings-section"><h3>Media kegiatan masjid</h3><label>Tambah foto / video<input type="file" id="mediaFiles" accept="image/*,video/*" multiple></label><label>Durasi foto (detik)<input id="setDuration" type="number" min="3" max="60" value="8"></label><button class="secondary-btn" id="clearMedia">Hapus semua media</button><p class="help">Media yang dipilih tersimpan di browser/perangkat ini, bukan di GitHub.</p></div>
+    <div class="settings-actions"><button class="secondary-btn" id="enableSound">Aktifkan Suara</button><button class="primary-btn" id="saveSettings">Simpan Pengaturan</button></div>
+  </div>
+</div>
+<div class="sound-prompt" id="soundPrompt"><span>Aktifkan suara agar alarm dapat berbunyi.</span><button id="soundPromptBtn">Aktifkan Suara</button></div>
+<script src="app.js"></script>
+</body></html>
